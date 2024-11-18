@@ -1,0 +1,12 @@
+ملفات الخاصة بخريطة sitemap
+
+/atom.xml
+
+/feeds/posts/default
+
+/rss.xml
+
+/sitemap.xml
+
+atom.xml?redirect=false&start-index=1&max-results=500/
+

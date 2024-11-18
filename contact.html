@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .contact-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            padding: 20px;
+            width: 100%;
+            text-align: right;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .contact-container h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .contact-container p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .contact-container label {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        .contact-container input:focus,
+        .contact-container textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .contact-container button {
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .contact-container button:hover {
+            background-color: #0056b3;
+        }
+        #success-message {
+            color: #28a745;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h2>اتصل بنا</h2>
+        <p>يرجى ملء النموذج أدناه وسنعود إليك في أقرب وقت ممكن.</p>
+        <form id="contactForm">
+            <label for="name">الاسم</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">الموضوع</label>
+            <input type="text" id="subject" name="subject" required>
+            
+            <label for="message">الرسالة</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">إرسال</button>
+        </form>
+        <p id="success-message">تم إرسال رسالتك بنجاح! سنعود إليك قريباً.</p>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // التأكيد من تعبئة الحقول وتحقق البريد الإلكتروني
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name === '' || email === '' || subject === '' || message === '') {
+                alert("يرجى ملء جميع الحقول.");
+                return;
+            }
+
+            // يمكن إضافة كود هنا لإرسال البيانات إلى الخادم
+            // عرض رسالة النجاح وإخفائها بعد فترة
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                document.getElementById('contactForm').reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
