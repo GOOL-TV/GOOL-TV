@@ -8,23 +8,27 @@
     <title>إعلان منسدل</title>
     <style>
         
-    <!-- CSS لتنسيق الإعلان -->
-    
+    <!-- CSS لتنسيق الإعلان وحركته -->
+    <style>
         @keyframes slideDown {
             from {
                 transform: translateY(-100%);
+                opacity: 0;
             }
             to {
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
         @keyframes slideUp {
             from {
                 transform: translateY(0);
+                opacity: 1;
             }
             to {
                 transform: translateY(-100%);
+                opacity: 0;
             }
         }
 
@@ -34,16 +38,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(90deg, #ff7b00, #ffb700);
+            background: linear-gradient(90deg, #25d366, #128c7e);
             color: white;
             z-index: 9999;
             padding: 20px 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: slideDown 1s ease;
+            animation: slideDown 1s ease-in-out;
+            opacity: 1;
         }
 
         #dynamic-ad.hidden {
-            animation: slideUp 1s ease forwards;
+            animation: slideUp 1s ease-in-out forwards;
         }
 
         #ad-toggle {
@@ -392,8 +397,8 @@
     <div id="dynamic-ad">
         <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center;">
             <div style="flex: 1; text-align: left;">
-                <h2 style="margin: 0; font-size: 1.5em;">🔥 عرض خاص: احصل على خصم 50٪ اليوم فقط!</h2>
-                <p style="margin: 5px 0;">اغتنم الفرصة الآن! <a href="https://example.com" target="_blank" style="color: #ffe600; text-decoration: underline;">اضغط هنا</a></p>
+                <h2 style="margin: 0; font-size: 1.5em;">🔥 عرض خاص: تواصل معنا على واتساب الآن!</h2>
+                <p style="margin: 5px 0;">للاستفادة من العرض، <a href="https://wa.me/201025117997" target="_blank" style="color: #ffe600; text-decoration: underline;">اضغط هنا</a></p>
             </div>
             <button onclick="closeAd()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">✖</button>
         </div>
@@ -409,7 +414,9 @@
         window.onload = function() {
             // عرض الإعلان تلقائيًا بعد 3 ثوانٍ
             setTimeout(() => {
-                document.getElementById('dynamic-ad').style.display = 'block';
+                const ad = document.getElementById('dynamic-ad');
+                ad.style.display = 'block';
+                ad.classList.remove('hidden');
             }, 3000);
         };
 
