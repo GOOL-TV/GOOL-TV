@@ -9,7 +9,7 @@
     <style>
         
     <!-- CSS لتنسيق الإعلان -->
-    <style>
+    
         @keyframes slideDown {
             from {
                 transform: translateY(-100%);
@@ -59,7 +59,7 @@
             border-radius: 0 0 5px 5px;
             display: none;
         }
-    </style>
+ 
         /* تنسيقات القائمة العلوية */
         .navbar {
             background: linear-gradient(to right, #045832, #045832);
@@ -223,63 +223,6 @@
     </style>
 </head>
 <body>
-
-    
-    <!-- HTML للإعلان -->
-    <div id="dynamic-ad">
-        <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center;">
-            <div style="flex: 1; text-align: left;">
-                <h2 style="margin: 0; font-size: 1.5em;">🔥 عرض خاص: احصل على خصم 50٪ اليوم فقط!</h2>
-                <p style="margin: 5px 0;">اغتنم الفرصة الآن! <a href="https://example.com" target="_blank" style="color: #ffe600; text-decoration: underline;">اضغط هنا</a></p>
-            </div>
-            <button onclick="closeAd()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">✖</button>
-        </div>
-    </div>
-    <div id="ad-toggle" onclick="toggleAd()">
-        <span>⬇ عرض الإعلان</span>
-    </div>
-
-    <!-- JavaScript للتحكم في الإعلان -->
-    <script>
-        let adVisible = false;
-
-        window.onload = function() {
-            // عرض الإعلان تلقائيًا بعد 3 ثوانٍ
-            setTimeout(() => {
-                document.getElementById('dynamic-ad').style.display = 'block';
-            }, 3000);
-        };
-
-        function toggleAd() {
-            const ad = document.getElementById('dynamic-ad');
-            const toggleButton = document.getElementById('ad-toggle');
-            
-            if (adVisible) {
-                ad.classList.add('hidden');
-                setTimeout(() => {
-                    ad.style.display = 'none';
-                    toggleButton.style.display = 'block';
-                }, 1000);
-            } else {
-                ad.style.display = 'block';
-                ad.classList.remove('hidden');
-                toggleButton.style.display = 'none';
-            }
-
-            adVisible = !adVisible;
-        }
-
-        function closeAd() {
-            const ad = document.getElementById('dynamic-ad');
-            const toggleButton = document.getElementById('ad-toggle');
-
-            ad.classList.add('hidden');
-            setTimeout(() => {
-                ad.style.display = 'none';
-                toggleButton.style.display = 'block';
-            }, 1000);
-        }
-    </script>
 
     <!-- القائمة العلوية -->
     <nav class="navbar navbar-expand-lg">
@@ -445,7 +388,66 @@
           
         </div>
     </div>
+    <!-- HTML للإعلان -->
+    <div id="dynamic-ad">
+        <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex: 1; text-align: left;">
+                <h2 style="margin: 0; font-size: 1.5em;">🔥 عرض خاص: احصل على خصم 50٪ اليوم فقط!</h2>
+                <p style="margin: 5px 0;">اغتنم الفرصة الآن! <a href="https://example.com" target="_blank" style="color: #ffe600; text-decoration: underline;">اضغط هنا</a></p>
+            </div>
+            <button onclick="closeAd()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">✖</button>
+        </div>
+    </div>
+    <div id="ad-toggle" onclick="toggleAd()">
+        <span>⬇ عرض الإعلان</span>
+    </div>
 
+    <!-- JavaScript للتحكم في الإعلان -->
+    <script>
+        let adVisible = false;
+
+        window.onload = function() {
+            // عرض الإعلان تلقائيًا بعد 3 ثوانٍ
+            setTimeout(() => {
+                document.getElementById('dynamic-ad').style.display = 'block';
+            }, 3000);
+        };
+
+        function toggleAd() {
+            const ad = document.getElementById('dynamic-ad');
+            const toggleButton = document.getElementById('ad-toggle');
+            
+            if (adVisible) {
+                ad.classList.add('hidden');
+                setTimeout(() => {
+                    ad.style.display = 'none';
+                    toggleButton.style.display = 'block';
+                }, 1000);
+            } else {
+                ad.style.display = 'block';
+                ad.classList.remove('hidden');
+                toggleButton.style.display = 'none';
+            }
+
+            adVisible = !adVisible;
+        }
+
+        function closeAd() {
+            const ad = document.getElementById('dynamic-ad');
+            const toggleButton = document.getElementById('ad-toggle');
+
+            ad.classList.add('hidden');
+            setTimeout(() => {
+                ad.style.display = 'none';
+                toggleButton.style.display = 'block';
+            }, 1000);
+        }
+    </script>
+
+
+
+
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
